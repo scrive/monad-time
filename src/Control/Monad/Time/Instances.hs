@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE FlexibleContexts, FlexibleInstances, OverlappingInstances
   , UndecidableInstances #-}
 module Control.Monad.Time.Instances () where
