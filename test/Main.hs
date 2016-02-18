@@ -4,7 +4,6 @@ import Control.Monad.Reader
 import Control.Monad.State
 
 import Control.Monad.Time
-import Control.Monad.Time.Instances ()
 
 main :: IO ()
 main = do
