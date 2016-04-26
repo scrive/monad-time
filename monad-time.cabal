@@ -20,8 +20,8 @@ library
   exposed-modules:   Control.Monad.Time
 
   build-depends:     base < 5,
-                     time,
-                     mtl
+                     mtl,
+                     time
 
   hs-source-dirs:    src
 
