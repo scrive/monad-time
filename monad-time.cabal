@@ -7,9 +7,11 @@ license:             BSD3
 license-file:        LICENSE
 author:              Andrzej Rybczak
 maintainer:          Andrzej Rybczak <andrzej@rybczak.net>, Jonathan Jouty <jonathan@scrive.com>
+copyright:           Scrive AB
 category:            Control
 build-type:          Simple
 cabal-version:       >=1.10
+extra-source-files:  README.md
 tested-with:         GHC==7.4.2, GHC==7.6.3, GHC==7.8.4, GHC==7.10.3, GHC==8.0.1
 
 source-repository head
