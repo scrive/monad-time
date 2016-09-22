@@ -1,12 +1,15 @@
 name:                monad-time
 version:             0.2
-synopsis:            Type class for monads which carry the notion of the current time.
-description:         'MonadTime' type class for monads which carry the notion of the current time.
+synopsis:            Type class for monads which carry
+                     the notion of the current time.
+description:         'MonadTime' type class for monads
+                     which carry the notion of the current time.
 homepage:            https://github.com/scrive/monad-time
 license:             BSD3
 license-file:        LICENSE
 author:              Andrzej Rybczak
-maintainer:          Andrzej Rybczak <andrzej@rybczak.net>, Jonathan Jouty <jonathan@scrive.com>
+maintainer:          Andrzej Rybczak <andrzej@rybczak.net>,
+                     Jonathan Jouty <jonathan@scrive.com>
 copyright:           Scrive AB
 category:            Control
 build-type:          Simple
