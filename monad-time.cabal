@@ -1,5 +1,5 @@
 name:                monad-time
-version:             0.2
+version:             0.3
 synopsis:            Type class for monads which carry
                      the notion of the current time.
 description:         'MonadTime' type class for monads
