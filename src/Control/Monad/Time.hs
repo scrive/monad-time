@@ -1,6 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-deprecated-flags #-}
-{-# LANGUAGE FlexibleContexts, FlexibleInstances, OverlappingInstances
-  , UndecidableInstances #-}
+{-# LANGUAGE FlexibleContexts, FlexibleInstances, UndecidableInstances #-}
 module Control.Monad.Time (MonadTime(..)) where
 
 import Control.Monad.Trans
@@ -15,11 +13,11 @@ class Monad m => MonadTime m where
 instance MonadTime IO where
   currentTime = getCurrentTime
 
-instance Monad m => MonadTime (ReaderT UTCTime m) where
+instance {-# OVERLAPPING #-} Monad m => MonadTime (ReaderT UTCTime m) where
   currentTime = ask
 
 -- | Generic, overlapping instance.
-instance (
+instance {-# OVERLAPPABLE #-} (
     MonadTime m
   , MonadTrans t
   , Monad (t m)
