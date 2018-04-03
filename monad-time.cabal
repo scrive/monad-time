@@ -9,7 +9,8 @@ license:             BSD3
 license-file:        LICENSE
 author:              Andrzej Rybczak
 maintainer:          Andrzej Rybczak <andrzej@rybczak.net>,
-                     Jonathan Jouty <jonathan@scrive.com>
+                     Jonathan Jouty <jonathan@scrive.com>,
+                     Mikhail Glushenkov <mikhail@scrive.com>
 copyright:           Scrive AB
 category:            Control
 build-type:          Simple
