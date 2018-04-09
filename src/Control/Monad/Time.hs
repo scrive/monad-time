@@ -1,4 +1,9 @@
-{-# LANGUAGE FlexibleContexts, FlexibleInstances, UndecidableInstances #-}
+{-# LANGUAGE CPP, FlexibleContexts, FlexibleInstances, UndecidableInstances #-}
+
+#if __GLASGOW_HASKELL__ < 710
+{-# LANGUAGE OverlappingInstances #-}
+#endif
+
 module Control.Monad.Time (MonadTime(..)) where
 
 import Control.Monad.Trans
