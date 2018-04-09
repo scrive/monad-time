@@ -18,6 +18,10 @@ class Monad m => MonadTime m where
 instance MonadTime IO where
   currentTime = getCurrentTime
 
+-- | This is @ReaderT UTCTime@ on purpose, to avoid breaking
+-- downstream.
+--
+-- @since 0.3.0.0
 instance {-# OVERLAPPING #-} Monad m => MonadTime (ReaderT UTCTime m) where
   currentTime = ask
 
