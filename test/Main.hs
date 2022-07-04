@@ -12,6 +12,7 @@ main = do
   -- Test that generic MonadTrans instance works.
   runReaderT currentTime 'x' >>= print
   evalStateT (runReaderT currentTime 'x') 'y' >>= print
-  -- Test that ReaderT UTCTime instance works
-  now <- getCurrentTime
-  runReaderT currentTime now >>= print
+
+  monotonicTime >>= print
+  runReaderT monotonicTime 'x' >>= print
+  evalStateT (runReaderT monotonicTime 'x') 'y' >>= print
