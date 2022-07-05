@@ -14,8 +14,12 @@
 #
 name: Haskell-CI
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 jobs:
   linux:
     name: Haskell-CI - Linux - ${{ matrix.compiler }}
@@ -140,6 +144,11 @@ jobs:
       - name: update cabal index
         run: |
           $CABAL v2-update -v
+      - name: cache (tools)
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-${{ matrix.compiler }}-tools-82ff35eb
+          path: ~/.haskell-ci-tools
       - name: install cabal-plan
         run: |
           mkdir -p $HOME/.cabal/bin
@@ -149,6 +158,10 @@ jobs:
           rm -f cabal-plan.xz
           chmod a+x $HOME/.cabal/bin/cabal-plan
           cabal-plan --version
+      - name: install doctest
+        run: |
+          $CABAL --store-dir=$HOME/.haskell-ci-tools/store v2-install $ARG_COMPILER --ignore-project -j2 doctest --constraint='doctest ^>=0.20'
+          doctest --version
       - name: checkout
         uses: actions/checkout@v2
         with:
@@ -204,6 +217,10 @@ jobs:
       - name: tests
         run: |
           $CABAL v2-test $ARG_COMPILER $ARG_TESTS $ARG_BENCH all --test-show-details=direct
+      - name: doctest
+        run: |
+          cd ${PKGDIR_monad_time} || false
+          doctest  -XHaskell2010 src
       - name: cabal check
         run: |
           cd ${PKGDIR_monad_time} || false
