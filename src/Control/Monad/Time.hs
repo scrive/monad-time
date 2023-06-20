@@ -1,10 +1,7 @@
-{-# LANGUAGE CPP, FlexibleContexts, FlexibleInstances, UndecidableInstances #-}
-
-#if __GLASGOW_HASKELL__ < 710
-{-# LANGUAGE OverlappingInstances #-}
-#endif
-
-module Control.Monad.Time (MonadTime(..)) where
+{-# LANGUAGE UndecidableInstances #-}
+module Control.Monad.Time
+  ( MonadTime(..)
+  ) where
 
 import Control.Monad.Trans
 import Data.Time
@@ -21,8 +18,8 @@ instance MonadTime IO where
   monotonicTime = getMonotonicTime
 
 -- | Generic, overlapping instance.
-instance {-# OVERLAPPABLE #-} (
-    MonadTime m
+instance {-# OVERLAPPABLE #-}
+  ( MonadTime m
   , MonadTrans t
   , Monad (t m)
   ) => MonadTime (t m) where
