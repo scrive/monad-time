@@ -1,3 +1,6 @@
+# monad-time-0.4.1.0 (2024-??-??)
+* Added `timed` function to `Control.Monad.Time.Utils`.
+
 # monad-time-0.4.0.0 (2022-07-05)
 * Added `monotonicTime` to `MonadTime`
 * Removed the `MonadTime` instance for `ReaderT UTCTime`
